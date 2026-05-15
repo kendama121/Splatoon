@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Root" class="root" picking-mode="Ignore">
+        <!-- 上部HUD: タイマー+塗り進捗 -->
+        <ui:VisualElement name="TopBar" class="top-bar" picking-mode="Ignore">
+            <ui:Label name="Timer" text="3:00" class="timer-text" picking-mode="Ignore" />
+            <ui:VisualElement name="ScoreBarBG" class="score-bar-bg" picking-mode="Ignore">
+                <ui:VisualElement name="AlphaBar" class="alpha-bar" picking-mode="Ignore" />
+                <ui:VisualElement name="BravoBar" class="bravo-bar" picking-mode="Ignore" />
+                <ui:Label name="AlphaPct" text="0.0%" class="alpha-pct" picking-mode="Ignore" />
+                <ui:Label name="BravoPct" text="0.0%" class="bravo-pct" picking-mode="Ignore" />
+                <ui:Label name="LeadText" text="LEAD!" class="lead-text" picking-mode="Ignore" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 左下: インクタンク -->
+        <ui:VisualElement name="InkTankFrame" class="ink-frame" picking-mode="Ignore">
+            <ui:VisualElement name="InkTankFill" class="ink-fill" picking-mode="Ignore" />
+            <ui:Label name="InkPct" text="100" class="ink-pct" picking-mode="Ignore" />
+            <ui:Label name="InkLabel" text="INK" class="ink-label" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <!-- 右下: スペシャル+武器情報 -->
+        <ui:VisualElement name="SpecialFrame" class="special-frame" picking-mode="Ignore">
+            <ui:VisualElement name="SpecialFill" class="special-fill" picking-mode="Ignore" />
+            <ui:Label name="SpecialLabel" text="SPECIAL" class="special-label" picking-mode="Ignore" />
+            <ui:Label name="WeaponName" text="Splattershot" class="weapon-name" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <!-- 中央通知 -->
+        <ui:Label name="CenterNotice" text="" class="center-notice hidden" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

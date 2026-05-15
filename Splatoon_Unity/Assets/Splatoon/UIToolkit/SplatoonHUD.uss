@@ -1,0 +1,194 @@
+.root {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    flex-grow: 1;
+}
+
+.top-bar {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    translate: -50% 0;
+    width: 1200px;
+    align-items: center;
+}
+
+.timer-text {
+    font-size: 90px;
+    color: white;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    background-color: rgba(20, 20, 30, 0.85);
+    padding: 0 30px;
+    border-radius: 18px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    border-width: 4px;
+    border-color: rgba(255, 200, 50, 0.7);
+}
+
+.score-bar-bg {
+    flex-direction: row;
+    width: 1100px;
+    height: 55px;
+    margin-top: -20px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 28px;
+    border-width: 3px;
+    border-color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+}
+
+.alpha-bar {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 128, 0);
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    scale: 0 1;
+    transform-origin: right;
+}
+
+.bravo-bar {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(51, 102, 255);
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    scale: 0 1;
+    transform-origin: left;
+}
+
+.alpha-pct {
+    position: absolute;
+    left: 20px;
+    top: 14px;
+    font-size: 28px;
+    color: white;
+    -unity-font-style: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.bravo-pct {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    font-size: 28px;
+    color: white;
+    -unity-font-style: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.lead-text {
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    translate: -50% 0;
+    font-size: 22px;
+    color: rgb(255, 220, 80);
+    -unity-font-style: bold;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 4px 12px;
+    border-radius: 8px;
+}
+
+.ink-frame {
+    position: absolute;
+    left: 50px;
+    bottom: 80px;
+    width: 130px;
+    height: 280px;
+    background-color: rgba(15, 15, 25, 0.88);
+    border-radius: 22px;
+    border-width: 4px;
+    border-color: rgba(255, 128, 0, 0.85);
+    align-items: center;
+}
+
+.ink-fill {
+    position: absolute;
+    left: 12px; right: 12px; bottom: 12px;
+    height: 244px;
+    background-color: rgb(255, 128, 0);
+    border-radius: 14px;
+}
+
+.ink-pct {
+    position: absolute;
+    left: 0; right: 0; top: 10px;
+    font-size: 42px;
+    color: white;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+}
+
+.ink-label {
+    position: absolute;
+    left: 0; right: 0; bottom: -32px;
+    font-size: 18px;
+    color: rgba(255, 200, 100, 1);
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+}
+
+.special-frame {
+    position: absolute;
+    right: 50px;
+    bottom: 80px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(15, 15, 25, 0.88);
+    border-radius: 100px;
+    border-width: 5px;
+    border-color: rgba(255, 220, 50, 0.9);
+    align-items: center;
+}
+
+.special-fill {
+    position: absolute;
+    left: 18px; right: 18px; top: 18px; bottom: 18px;
+    background-color: rgb(255, 220, 50);
+    border-radius: 82px;
+    scale: 0 0;
+}
+
+.special-label {
+    position: absolute;
+    left: 0; right: 0; bottom: -34px;
+    font-size: 24px;
+    color: rgba(255, 220, 100, 1);
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.weapon-name {
+    position: absolute;
+    right: 0; top: -55px;
+    width: 260px;
+    font-size: 26px;
+    color: white;
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.center-notice {
+    position: absolute;
+    left: 50%; top: 30%;
+    translate: -50% 0;
+    width: 1400px;
+    font-size: 140px;
+    color: rgb(255, 220, 80);
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
+}
+
+.hidden {
+    display: none;
+}

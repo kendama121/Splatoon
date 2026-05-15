@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mat_PaintableSurface
+  m_Shader: {fileID: 4800000, guid: c0203907351ba2d4fa71fa8b383853b8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: f571a3c09a7768040b02ba6ccd8e33a6, type: 2}
+        m_Scale: {x: 8, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _SplatTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _GridScale: 0.5
+    - _GridStrength: 0.4
+    - _InkEmission: 3.5
+    - _InkGloss: 0.98
+    - _Metallic: 0
+    - _Smoothness: 0.4
+    m_Colors:
+    - _BaseColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+    - _GridColor: {r: 0.55, g: 0.6, b: 0.7, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

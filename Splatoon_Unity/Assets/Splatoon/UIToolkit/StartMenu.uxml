@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="StartRoot" class="start-root">
+        <ui:VisualElement name="BGGradient" class="bg-gradient" picking-mode="Ignore" />
+        <ui:VisualElement name="InkSplatLayer" class="ink-splat-layer" picking-mode="Ignore">
+            <ui:VisualElement class="splat splat-1" picking-mode="Ignore" />
+            <ui:VisualElement class="splat splat-2" picking-mode="Ignore" />
+            <ui:VisualElement class="splat splat-3" picking-mode="Ignore" />
+            <ui:VisualElement class="splat splat-4" picking-mode="Ignore" />
+            <ui:VisualElement class="splat splat-5" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="TitleBlock" class="title-block">
+            <ui:Label name="TitleSub" text="WELCOME TO" class="title-sub" picking-mode="Ignore" />
+            <ui:Label name="TitleMain" text="SPLAT BATTLE" class="title-main" picking-mode="Ignore" />
+            <ui:Label name="TitleTag" text="INK YOUR TURF!" class="title-tag" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="MenuBlock" class="menu-block">
+            <ui:Button name="BtnStart" text="START BATTLE" class="menu-btn menu-btn-primary" />
+            <ui:Button name="BtnHowTo" text="HOW TO PLAY" class="menu-btn" />
+            <ui:Button name="BtnSettings" text="SETTINGS" class="menu-btn" />
+            <ui:Button name="BtnQuit" text="QUIT" class="menu-btn menu-btn-quit" />
+        </ui:VisualElement>
+
+        <ui:Label name="Hint" text="A SPLATOON-LIKE TURF WAR GAME" class="hint" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>
