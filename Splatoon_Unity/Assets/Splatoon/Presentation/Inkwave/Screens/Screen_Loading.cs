@@ -46,8 +46,8 @@ namespace Splatoon.Presentation.Inkwave.Screens
             if (!IsInputAllowed()) return;
             if (InkwaveInput.GetKeyDown(KeyCode.Escape)) { GoTo(InkwaveScreenManager.Screen.Lobby); return; }
 
-            // 進捗(0~100)
-            _pct += Time.unscaledDeltaTime * 60f * 0.9f / 60f * 100f / 90f;
+            // 進捗(0~100、1秒で完了)
+            _pct += Time.unscaledDeltaTime * 120f;
             _pct = Mathf.Min(100f, _pct);
             if (_pctLabel != null) _pctLabel.text = $"{Mathf.RoundToInt(_pct)}%";
             // 5段階バー、それぞれの進み方を変える

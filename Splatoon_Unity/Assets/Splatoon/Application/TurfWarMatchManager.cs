@@ -42,7 +42,8 @@ namespace Splatoon.Application
 
         void Start()
         {
-            StartMatch();
+            // 自動開始は廃止。Inkwave HUD遷移時にStartMatch呼ぶ。
+            IsMatchActive = false;
         }
 
         /// <summary>

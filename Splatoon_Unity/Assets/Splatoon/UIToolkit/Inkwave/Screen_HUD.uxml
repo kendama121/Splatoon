@@ -2,7 +2,8 @@
     <Style src="InkwaveCommon.uss" />
     <Style src="InkwaveAnimations.uss" />
     <Style src="InkwaveExtras.uss" />
-    <ui:VisualElement name="root" class="iw-screen iw-bg-hud" picking-mode="Ignore">
+    <ui:VisualElement name="root" class="iw-screen" picking-mode="Ignore"
+                      style="background-color:rgba(0,0,0,0);">
 
         <!-- 上部スコアバー -->
         <ui:VisualElement name="top-bar" picking-mode="Ignore"
@@ -75,22 +76,25 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ブキカード -->
+        <!-- ブキカード(操作ヘルプ) -->
         <ui:VisualElement name="weapon-card" class="iw-poster" picking-mode="Ignore"
-                          style="position:absolute; bottom:18px; right:18px; padding:14px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16); width:280px;">
+                          style="position:absolute; bottom:18px; right:18px; padding:14px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16); width:300px;">
             <ui:Label text="装備中のブキ" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
             <ui:Label text="タイド-08 スプレイヤー" class="iw-head" style="font-size:14px; color:rgb(244,244,240); margin-top:2px;" />
-            <ui:Label text="サブ: スプラッシュボム · SP: ウェーブバースト" style="font-size:9px; color:rgb(138,138,146); margin-top:2px;" />
-            <ui:VisualElement style="flex-direction:row; margin-top:8px;">
-                <iw:IwKey key-text="⇧" /><ui:Label text="イカ" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
-                <iw:IwKey key-text="Space" /><ui:Label text="JUMP" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
-                <iw:IwKey key-text="F" /><ui:Label text="NICE" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
-                <iw:IwKey key-text="Tab" /><ui:Label text="MAP" style="font-size:9px; color:rgb(244,244,240); margin-left:4px;" />
+            <ui:VisualElement style="flex-direction:row; flex-wrap:wrap; margin-top:8px;">
+                <iw:IwKey key-text="LMB" /><ui:Label text="射撃" style="font-size:10px; color:rgb(244,244,240); margin-right:10px; margin-left:4px;" />
+                <iw:IwKey key-text="RMB" /><ui:Label text="サブ" style="font-size:10px; color:rgb(244,244,240); margin-right:10px; margin-left:4px;" />
+                <iw:IwKey key-text="Q" /><ui:Label text="スペシャル" style="font-size:10px; color:rgb(244,244,240); margin-right:10px; margin-left:4px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-direction:row; flex-wrap:wrap; margin-top:4px;">
+                <iw:IwKey key-text="Shift" /><ui:Label text="イカ潜伏" style="font-size:10px; color:rgb(244,244,240); margin-right:10px; margin-left:4px;" />
+                <iw:IwKey key-text="Tab" /><ui:Label text="マップ" style="font-size:10px; color:rgb(244,244,240); margin-right:10px; margin-left:4px;" />
+                <iw:IwKey key-text="Esc" /><ui:Label text="ポーズ" style="font-size:10px; color:rgb(244,244,240); margin-left:4px;" />
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ステッカー: 3キル連続 -->
-        <iw:IwSticker name="kill-streak" text="3キル連続!" bg-color="rgb(255,214,0)" text-color="rgb(13,13,16)" rotate="-6"
-                      style="position:absolute; top:96px; right:280px;" picking-mode="Ignore" />
+        <!-- ステッカー: 3キル連続(条件付きでScreen_HUDが表示制御) -->
+        <iw:IwSticker name="kill-streak" text="連続キル!" bg-color="rgb(255,214,0)" text-color="rgb(13,13,16)" rotate="-6"
+                      style="position:absolute; top:96px; right:280px; display:none;" picking-mode="Ignore" />
     </ui:VisualElement>
 </ui:UXML>

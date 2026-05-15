@@ -31,10 +31,15 @@ namespace Splatoon.Presentation.Inkwave
         /// <summary>表示直後 入力無効化時間(秒)。誤入力(キーカーソル残留)防止。</summary>
         protected const float InputLockDuration = 0.3f;
 
-        /// <summary>OnEnableで _root取得+派生クラスのBindUI呼出+全Labelに日本語フォント強制適用</summary>
+        /// <summary>OnEnableで _root取得+派生クラスのBindUI呼出+全Labelに日本語フォント強制適用+カーソルデフォルト解放</summary>
         protected virtual void OnEnable()
         {
             _enabledTime = Time.unscaledTime;
+            // デフォルト: カーソル表示(メニュー類で操作可能)。HUD等は BindUI 内で上書き。
+            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Time.timeScale = 1f;
+
             if (_doc != null) _root = _doc.rootVisualElement;
             if (_root != null)
             {

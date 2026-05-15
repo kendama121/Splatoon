@@ -102,14 +102,7 @@ namespace Splatoon.Presentation.Inkwave
 
             // ScreenManager に画面切替時のActive制御を委譲(Show時に該当GameObjectのみActive化する仕組みを使う)
 
-            // HUDBridge を自動配線(同GameObject)
-            if (hudDoc != null)
-            {
-                var bridge = GetComponent<InkwaveHUDBridge>();
-                if (bridge == null) bridge = gameObject.AddComponent<InkwaveHUDBridge>();
-                // Screen_HUD は HUD UIDocumentと同GameObject上にControllerとしてあるので参照取得
-                bridge.HUD = hudDoc.GetComponent<Screens.Screen_HUD>();
-            }
+            // HUDBridge は不要(Screen_HUD が直接ゲーム参照取得する設計に変更済)
         }
     }
 }

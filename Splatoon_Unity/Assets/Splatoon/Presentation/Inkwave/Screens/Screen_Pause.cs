@@ -12,9 +12,13 @@ namespace Splatoon.Presentation.Inkwave.Screens
 
         MenuItem[] _items;
 
-        /// <summary>UI構築。</summary>
+        /// <summary>UI構築。ポーズ中はゲーム時間停止+カーソル表示。</summary>
         protected override void BindUI()
         {
+            UnityEngine.Time.timeScale = 0f;
+            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+
             _items = new MenuItem[]
             {
                 new() { Label="再開する", Key="Esc", Variant="primary", GoToScreen=InkwaveScreenManager.Screen.HUD },
