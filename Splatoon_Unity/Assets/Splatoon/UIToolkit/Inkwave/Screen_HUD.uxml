@@ -2,8 +2,7 @@
     <Style src="InkwaveCommon.uss" />
     <Style src="InkwaveAnimations.uss" />
     <Style src="InkwaveExtras.uss" />
-    <ui:VisualElement name="root" class="iw-screen" picking-mode="Ignore"
-                      style="background-color:rgba(0,0,0,0);">
+    <ui:VisualElement name="root" class="iw-screen-transparent" picking-mode="Ignore">
 
         <!-- 上部スコアバー -->
         <ui:VisualElement name="top-bar" picking-mode="Ignore"

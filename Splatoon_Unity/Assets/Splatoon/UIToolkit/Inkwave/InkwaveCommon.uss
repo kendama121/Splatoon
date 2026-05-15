@@ -28,6 +28,23 @@
     left: 0; top: 0;
 }
 
+/* HUD 専用: 背景透明(ゲーム画面を見せる) */
+.iw-screen-transparent {
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--ink-white);
+    position: absolute;
+    left: 0; top: 0;
+}
+
+/* iw-screen 用 backdrop: 親いっぱいの黒幕(画面比率差で右端余白対策) */
+.iw-fullscreen-backdrop {
+    position: absolute;
+    left: -500px; right: -500px; top: -500px; bottom: -500px;
+    background-color: var(--bg-0);
+}
+
 /* noise overlay 代替 - 子VisualElement2つで擬似 */
 .iw-noise-tint-a {
     position: absolute;

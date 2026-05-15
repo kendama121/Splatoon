@@ -31,24 +31,38 @@ namespace Splatoon.Presentation.Inkwave
         /// <summary>表示直後 入力無効化時間(秒)。誤入力(キーカーソル残留)防止。</summary>
         protected const float InputLockDuration = 0.3f;
 
-        /// <summary>OnEnableで _root取得+派生クラスのBindUI呼出+全Labelに日本語フォント強制適用+カーソルデフォルト解放</summary>
+        /// <summary>OnEnableで _root取得+backdrop注入+BindUI+フォント適用+Cursorデフォルト解放</summary>
         protected virtual void OnEnable()
         {
             _enabledTime = Time.unscaledTime;
-            // デフォルト: カーソル表示(メニュー類で操作可能)。HUD等は BindUI 内で上書き。
-            UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None;
-            UnityEngine.Cursor.visible = true;
             UnityEngine.Time.timeScale = 1f;
 
             if (_doc != null) _root = _doc.rootVisualElement;
             if (_root != null)
             {
+                InjectBackdropIfNeeded();
                 BindUI();
                 ApplyJpFontRecursive(_root);
-                // 動的生成された要素にも次フレームで再適用
                 _root.schedule.Execute(() => ApplyJpFontRecursive(_root)).StartingIn(50);
             }
         }
+
+        /// <summary>iw-screen-transparent でない画面に黒backdropを挿入(画面比率差で隅余白対策)。</summary>
+        void InjectBackdropIfNeeded()
+        {
+            if (_root.childCount == 0) return;
+            var iw = _root[0];
+            // HUD 等 透明画面は backdrop 不要
+            if (iw.ClassListContains("iw-screen-transparent")) return;
+            // 既に挿入済なら skip
+            if (iw.Q<VisualElement>("__backdrop__") != null) return;
+            var bd = new VisualElement { name = "__backdrop__" };
+            bd.AddToClassList("iw-fullscreen-backdrop");
+            bd.pickingMode = PickingMode.Ignore;
+            iw.Insert(0, bd);
+        }
+
+        // Cursor 強制制御は InkwaveScreenManager.LateUpdate で一元管理(継承priv LateUpdate は呼ばれないため)
 
         /// <summary>入力受付期間か(表示直後の InputLockDuration 秒間は false)。</summary>
         protected bool IsInputAllowed()

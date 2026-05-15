@@ -45,6 +45,18 @@ namespace Splatoon.Presentation.Inkwave
             Instance = this;
         }
 
+        /// <summary>LateUpdate: HUD 以外で Cursor.Lock を毎フレーム上書き解除(PlayerControllerの再ロック対策)。</summary>
+        void LateUpdate()
+        {
+            if (Current != Screen.HUD)
+            {
+                if (UnityEngine.Cursor.lockState != CursorLockMode.None)
+                    UnityEngine.Cursor.lockState = CursorLockMode.None;
+                if (!UnityEngine.Cursor.visible)
+                    UnityEngine.Cursor.visible = true;
+            }
+        }
+
         void Start()
         {
             HideAll();
@@ -64,7 +76,7 @@ namespace Splatoon.Presentation.Inkwave
         }
 
         /// <summary>
-        /// 指定画面を表示。他は非表示にする。GameObject SetActive 制御 + display=Flex 設定。
+        /// 指定画面を表示。他は非表示にする。HUD時のみゲーム操作有効化+カーソルロック。
         /// </summary>
         public void Show(Screen screen)
         {
@@ -74,13 +86,39 @@ namespace Splatoon.Presentation.Inkwave
             var doc = ScreenDocuments[idx];
             if (doc == null) return;
             doc.gameObject.SetActive(true);
-            // SetActive直後の rootVisualElement は null かも → schedule で確実適用
             doc.rootVisualElement?.schedule.Execute(() =>
             {
                 if (doc.rootVisualElement != null)
                     doc.rootVisualElement.style.display = DisplayStyle.Flex;
             }).StartingIn(0);
             Current = screen;
+
+            // HUD 時のみゲーム操作モード(Player/Bot 有効化 + カーソルロック)
+            bool isBattle = (screen == Screen.HUD);
+            ApplyGameMode(isBattle);
+        }
+
+        /// <summary>ゲーム操作モード切替(HUD表示=true、メニュー類=false)。</summary>
+        public void ApplyGameMode(bool battle)
+        {
+            // Player / Bot の制御スクリプトを有効化/無効化
+            ToggleComponents("Player", battle);
+            ToggleComponents("BotPlayer", battle);
+            // カーソル
+            UnityEngine.Cursor.lockState = battle ? CursorLockMode.Locked : CursorLockMode.None;
+            UnityEngine.Cursor.visible = !battle;
+        }
+
+        /// <summary>指定GameObject上の MonoBehaviour スクリプト一括 enabled 切替。</summary>
+        void ToggleComponents(string goName, bool enabled)
+        {
+            var go = GameObject.Find(goName);
+            if (go == null) return;
+            foreach (var mb in go.GetComponents<MonoBehaviour>())
+            {
+                // 自身(=ScreenManager等)や InkwaveBase 系は除外する必要なし(Player配下のみ対象)
+                mb.enabled = enabled;
+            }
         }
 
         /// <summary>
