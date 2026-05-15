@@ -1,0 +1,367 @@
+/* INKWAVE 共通スタイル(styles.css のUSS移植版) */
+/* USS制約により clip-path/box-shadow/filter/mix-blend-mode/color-mix は border-radius/text-shadow/直接色 で代替 */
+
+:root {
+    --team-a: rgb(255, 27, 107);
+    --team-a-dim: rgb(138, 10, 58);
+    --team-b: rgb(0, 229, 255);
+    --team-b-dim: rgb(8, 101, 118);
+    --bg-0: rgb(13, 13, 16);
+    --bg-1: rgb(21, 21, 26);
+    --bg-2: rgb(29, 29, 36);
+    --bg-3: rgb(42, 42, 51);
+    --bg-4: rgb(56, 56, 67);
+    --line: rgb(52, 52, 63);
+    --ink-white: rgb(244, 244, 240);
+    --ink-dim: rgb(138, 138, 146);
+    --warn: rgb(255, 214, 0);
+    --ok: rgb(65, 224, 122);
+    --danger: rgb(255, 85, 85);
+}
+
+.iw-screen {
+    width: 1920px;
+    height: 1080px;
+    background-color: var(--bg-0);
+    color: var(--ink-white);
+    position: absolute;
+    left: 0; top: 0;
+}
+
+/* noise overlay 代替 - 子VisualElement2つで擬似 */
+.iw-noise-tint-a {
+    position: absolute;
+    left: 5%; top: 10%; width: 50%; height: 60%;
+    background-color: rgba(255, 27, 107, 0.08);
+    border-radius: 50%;
+}
+.iw-noise-tint-b {
+    position: absolute;
+    right: 5%; bottom: 10%; width: 50%; height: 60%;
+    background-color: rgba(0, 229, 255, 0.08);
+    border-radius: 50%;
+}
+
+/* chips */
+.iw-chip {
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    background-color: var(--bg-2);
+    border-width: 1px;
+    border-color: var(--line);
+    color: var(--ink-dim);
+    -unity-text-align: middle-center;
+}
+.iw-chip-live {
+    color: var(--ink-white);
+    background-color: var(--team-a);
+    border-color: var(--team-a);
+}
+.iw-chip-dot {
+    width: 6px; height: 6px;
+    background-color: rgb(244, 244, 240);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* buttons */
+.iw-btn {
+    height: 50px;
+    padding: 0 22px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    background-color: var(--ink-white);
+    color: var(--bg-0);
+    border-width: 0;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    -unity-text-align: middle-center;
+    transition-property: scale, background-color;
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+}
+.iw-btn:hover {
+    scale: 1.04 1.04;
+    background-color: rgb(255, 255, 255);
+}
+.iw-btn:active {
+    scale: 0.97 0.97;
+}
+.iw-btn-primary {
+    background-color: var(--team-a);
+    color: var(--ink-white);
+    border-width: 1px;
+    border-color: rgb(255, 100, 150);
+}
+.iw-btn-primary:hover {
+    background-color: rgb(255, 60, 130);
+}
+.iw-btn-ghost {
+    background-color: rgba(0,0,0,0);
+    color: var(--ink-white);
+    border-width: 1px;
+    border-color: var(--line);
+}
+.iw-btn-ghost:hover {
+    background-color: var(--bg-2);
+    border-color: var(--ink-white);
+}
+
+/* pill */
+.iw-pill {
+    height: 56px;
+    padding: 0 28px;
+    background-color: var(--ink-white);
+    color: var(--bg-0);
+    border-width: 3px;
+    border-color: var(--bg-0);
+    border-radius: 30px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    transition-property: scale;
+    transition-duration: 150ms;
+}
+.iw-pill:hover { scale: 1.05 1.05; }
+.iw-pill:active { scale: 0.97 0.97; }
+.iw-pill-primary { background-color: var(--team-a); color: var(--ink-white); }
+.iw-pill-warn { background-color: var(--warn); color: var(--bg-0); }
+
+/* cards */
+.iw-card {
+    background-color: var(--bg-1);
+    border-width: 1px;
+    border-color: var(--line);
+}
+.iw-card-cut {
+    border-radius: 14px;
+}
+
+/* labels */
+.iw-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--ink-dim);
+    -unity-font-style: bold;
+}
+.iw-num {
+    letter-spacing: 1px;
+}
+.iw-head {
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+}
+
+/* diagonal stripe — USS は repeating-linear-gradient 不対応 → 単色背景で代替 */
+.iw-stripe {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* logo */
+.iw-logo {
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 3px;
+    -unity-font-style: bold;
+    color: var(--ink-white);
+}
+.iw-logo-mark {
+    width: 22px; height: 22px;
+    border-radius: 4px;
+    rotate: 15deg;
+    background-color: var(--team-a);
+}
+
+/* keycap */
+.iw-kbd {
+    min-width: 22px; height: 22px;
+    padding: 0 6px;
+    font-size: 11px;
+    background-color: var(--bg-3);
+    border-width: 1px;
+    border-color: var(--line);
+    border-bottom-width: 2px;
+    color: var(--ink-white);
+    border-radius: 3px;
+    -unity-text-align: middle-center;
+    transition-property: scale, background-color;
+    transition-duration: 150ms;
+}
+.iw-kbd:hover {
+    background-color: var(--bg-4);
+    border-color: var(--ink-white);
+    scale: 1.05 1.05;
+}
+
+/* tabs */
+.iw-tab {
+    padding: 8px 18px;
+    height: 36px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background-color: var(--bg-2);
+    color: var(--ink-dim);
+    border-width: 0;
+    border-radius: 8px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    transition-property: scale, background-color, color;
+    transition-duration: 200ms;
+}
+.iw-tab:hover { background-color: var(--bg-3); color: var(--ink-white); }
+.iw-tab-active {
+    background-color: var(--team-a);
+    color: var(--ink-white);
+}
+
+/* selectable rows */
+.iw-row {
+    background-color: var(--bg-2);
+    border-left-width: 3px;
+    border-left-color: rgba(0,0,0,0);
+    transition-property: background-color, translate, border-left-color;
+    transition-duration: 180ms;
+}
+.iw-row:hover {
+    background-color: var(--bg-3);
+    border-left-color: rgba(255, 27, 107, 0.5);
+    translate: 2px 0;
+}
+.iw-row-selected {
+    background-color: var(--bg-3);
+    border-left-color: var(--team-a);
+    border-width: 1px;
+    border-color: rgba(255, 27, 107, 0.4);
+}
+
+/* grid bg(USS では img なし、border のみ) */
+.iw-grid {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* outline display text (USS で擬似的に) */
+.iw-outline {
+    text-shadow: 4px 4px 0 rgb(13, 13, 16);
+    -unity-font-style: bold;
+}
+
+/* sticker */
+.iw-sticker {
+    padding: 8px 14px;
+    background-color: var(--ink-white);
+    color: var(--bg-0);
+    border-width: 3px;
+    border-color: var(--bg-0);
+    -unity-font-style: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    rotate: -4deg;
+    -unity-text-align: middle-center;
+}
+.iw-sticker-team-a { background-color: var(--team-a); color: var(--ink-white); }
+.iw-sticker-team-b { background-color: var(--team-b); color: var(--bg-0); }
+.iw-sticker-warn { background-color: var(--warn); color: var(--bg-0); }
+
+/* tape */
+.iw-tape {
+    background-color: var(--warn);
+    color: var(--bg-0);
+    letter-spacing: 4px;
+    -unity-font-style: bold;
+    height: 28px;
+    -unity-text-align: middle-center;
+}
+
+/* poster */
+.iw-poster {
+    background-color: var(--bg-1);
+    border-width: 3px;
+    border-color: var(--bg-0);
+    transition-property: translate;
+    transition-duration: 220ms;
+}
+.iw-poster:hover { translate: -2px -2px; }
+.iw-poster:active { translate: 2px 2px; }
+
+/* swatch */
+.iw-swatch {
+    width: 40px; height: 40px;
+    border-radius: 4px;
+    transition-property: scale, border-color;
+    transition-duration: 150ms;
+    border-width: 2px;
+    border-color: rgba(0,0,0,0);
+}
+.iw-swatch:hover {
+    scale: 1.1 1.1;
+    border-color: var(--ink-white);
+}
+.iw-swatch-selected {
+    border-color: var(--ink-white);
+}
+
+/* tile */
+.iw-tile {
+    background-color: var(--bg-2);
+    border-width: 1px;
+    border-color: var(--line);
+    transition-property: translate, border-color;
+    transition-duration: 220ms;
+}
+.iw-tile:hover {
+    translate: 0 -3px;
+    border-color: var(--team-a);
+}
+.iw-tile-selected {
+    border-color: var(--team-a);
+    border-width: 2px;
+}
+
+/* toggle */
+.iw-toggle {
+    width: 44px; height: 22px;
+    background-color: var(--bg-3);
+    border-radius: 4px;
+    transition-property: background-color;
+    transition-duration: 200ms;
+}
+.iw-toggle-knob {
+    width: 18px; height: 18px;
+    background-color: var(--ink-white);
+    position: absolute;
+    left: 2px; top: 2px;
+    transition-property: left;
+    transition-duration: 200ms;
+}
+.iw-toggle-on { background-color: var(--team-a); }
+.iw-toggle-on .iw-toggle-knob { left: 24px; }
+
+/* slider */
+.iw-slider-track {
+    height: 4px;
+    background-color: var(--bg-3);
+}
+.iw-slider-fill {
+    height: 100%;
+    background-color: var(--team-a);
+}
+.iw-slider-thumb {
+    width: 10px; height: 10px;
+    background-color: var(--ink-white);
+    position: absolute;
+    top: -3px;
+    transition-property: scale;
+    transition-duration: 150ms;
+}
+.iw-slider-thumb:hover { scale: 1.4 1.4; }
+
+/* utility */
+.hidden { display: none; }
+.row { flex-direction: row; }
+.col { flex-direction: column; }
+.center { align-items: center; justify-content: center; }
+.absolute { position: absolute; }

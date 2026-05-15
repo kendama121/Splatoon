@@ -1,0 +1,58 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-noise">
+        <iw:IwSplat splat-size="180" splat-color="rgb(255,27,107)" rotate="20" splat-opacity="0.22"
+                    style="position:absolute; right:0; top:0;" />
+
+        <!-- ScreenHeader -->
+        <ui:VisualElement class="iw-screen-header">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <iw:IwLogo />
+                <ui:Label text="ホーム / ロードアウト / ブキ" class="iw-label" style="margin-left:18px; font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <ui:Button name="btn-back" text="装備して戻る" class="iw-pill iw-pill-primary" />
+        </ui:VisualElement>
+
+        <!-- 3カラム本体 -->
+        <ui:VisualElement style="flex-direction:row; padding:14px 22px; flex-grow:1;">
+            <!-- 左: カテゴリ+ブキリスト -->
+            <ui:VisualElement style="width:280px; flex-direction:column;">
+                <ui:VisualElement name="cat-bar" style="flex-direction:row; flex-wrap:wrap;" />
+                <ui:VisualElement name="weapon-list" class="iw-poster"
+                                  style="flex-grow:1; margin-top:10px; padding:10px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+            </ui:VisualElement>
+
+            <!-- 中央: ヒーロー -->
+            <ui:VisualElement name="hero" class="iw-poster"
+                              style="flex-grow:1; margin-left:14px; margin-right:14px; background-color:rgb(21,21,26); overflow:hidden;" />
+
+            <!-- 右: 詳細 -->
+            <ui:VisualElement name="right-col" style="width:270px;">
+                <ui:VisualElement name="main-weapon-card" class="iw-poster"
+                                  style="padding:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+                <ui:VisualElement name="sub-card" class="iw-poster"
+                                  style="padding:14px; margin-top:12px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+                <ui:VisualElement name="sp-card" class="iw-poster"
+                                  style="padding:14px; margin-top:12px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+                <ui:VisualElement name="equip-card" class="iw-poster"
+                                  style="padding:14px; margin-top:auto; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:VisualElement style="flex-direction:row; justify-content:space-between; align-items:baseline;">
+                        <ui:Label text="所持" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                        <ui:Label text="◆ 28,440" class="iw-num" style="font-size:14px; color:rgb(255,214,0);" />
+                    </ui:VisualElement>
+                    <ui:Button name="btn-equip" class="iw-pill iw-pill-primary"
+                               style="margin-top:10px; font-size:16px; -unity-text-align:middle-center;" text="このブキを装備" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="W" class="iw-hint-item-key" /><iw:IwKey key-text="S" class="iw-hint-item-key" /><ui:Label text="選択" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Tab" class="iw-hint-item-key" /><ui:Label text="カテゴリ" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Enter" class="iw-hint-item-key" /><ui:Label text="装備" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

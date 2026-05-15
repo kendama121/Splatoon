@@ -1,0 +1,122 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-bg-title">
+        <!-- 背景 ノイズオーバーレイ -->
+        <ui:VisualElement class="iw-noise-tint-a" />
+        <ui:VisualElement class="iw-noise-tint-b" />
+
+        <!-- 装飾 Splat (3) -->
+        <iw:IwSplat splat-size="360" splat-color="rgb(255,27,107)" rotate="20" splat-opacity="0.5"
+                    style="position:absolute; left:-60px; top:-40px;" />
+        <iw:IwSplat splat-size="260" splat-color="rgb(0,229,255)" rotate="-15" splat-opacity="0.45"
+                    style="position:absolute; right:-30px; top:200px;" />
+        <iw:IwSplat splat-size="140" splat-color="rgb(255,27,107)" rotate="45" splat-opacity="0.4"
+                    style="position:absolute; right:260px; bottom:100px;" />
+
+        <!-- 上部テープ -->
+        <ui:VisualElement name="tape" class="iw-tape"
+                          style="position:absolute; top:0; left:0; right:0; height:26px;">
+            <ui:Label text="◆ INKWAVE ◆ SEASON 2 ◆ HARBOR WAVE ◆ INKWAVE ◆ SEASON 2 ◆ HARBOR WAVE ◆"
+                      style="-unity-text-align:middle-center;" />
+        </ui:VisualElement>
+
+        <!-- トップバー(ロゴ+チップ) -->
+        <ui:VisualElement name="topbar"
+                          style="position:absolute; top:40px; left:28px; right:28px; flex-direction:row; justify-content:space-between; align-items:center;">
+            <iw:IwLogo />
+            <ui:VisualElement style="flex-direction:row;">
+                <iw:IwChip chip-text="4,218人プレイ中" live="true" />
+                <iw:IwChip chip-text="v0.7.2 · オープンβ" live="false" style="margin-left:10px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 左メインカラム -->
+        <ui:VisualElement name="hero-left"
+                          style="position:absolute; left:56px; top:96px; max-width:720px;">
+            <iw:IwSticker text="4 ON 4 · インク陣取り" bg-color="rgb(255,214,0)"
+                          text-color="rgb(13,13,16)" rotate="-6"
+                          style="margin-bottom:14px; align-self:flex-start;" />
+
+            <!-- 巨大タイトル(4層) -->
+            <ui:VisualElement name="title-stack" style="position:relative; height:240px;">
+                <!-- INK影 -->
+                <ui:Label text="INK"
+                          style="position:absolute; left:-6px; top:6px; font-size:128px; color:rgb(255,27,107); -unity-font-style:bold; letter-spacing:-4px; opacity:0.9;" />
+                <!-- INK前面 -->
+                <ui:Label text="INK" class="iw-text-outline-thick"
+                          style="position:absolute; left:0; top:0; font-size:128px; color:rgb(244,244,240); -unity-font-style:bold; letter-spacing:-4px;" />
+                <!-- WAVE影 -->
+                <ui:Label text="WAVE"
+                          style="position:absolute; left:78px; top:114px; font-size:128px; color:rgb(0,229,255); -unity-font-style:bold; letter-spacing:-4px; opacity:0.95;" />
+                <!-- WAVE前面 -->
+                <ui:Label text="WAVE" class="iw-text-outline-thick"
+                          style="position:absolute; left:72px; top:108px; font-size:128px; color:rgb(244,244,240); -unity-font-style:bold; letter-spacing:-4px;" />
+            </ui:VisualElement>
+
+            <!-- タグライン -->
+            <ui:VisualElement style="flex-direction:row; margin-top:18px; align-items:baseline;">
+                <ui:Label text="街を塗れ、" class="iw-head" style="font-size:22px; color:rgb(244,244,240);" />
+                <ui:Label text="波を起こせ。" class="iw-head iw-text-outline"
+                          style="font-size:22px; color:rgb(255,27,107); margin-left:12px;" />
+            </ui:VisualElement>
+
+            <!-- CTA -->
+            <ui:Button name="press-start" class="iw-pill iw-pill-primary iw-anim-tilt"
+                       style="margin-top:22px; padding:14px 28px; font-size:18px; align-self:flex-start;">
+                <ui:Label text="PRESS" style="font-size:14px;" />
+                <ui:Label text="START" style="font-size:22px; margin-left:6px; -unity-font-style:bold;" />
+                <ui:Label name="arrow" text="▸" class="iw-anim-arrow" style="font-size:18px; margin-left:6px;" />
+            </ui:Button>
+
+            <!-- ログイン情報 -->
+            <ui:VisualElement style="flex-direction:row; margin-top:12px; align-items:center;">
+                <iw:IwAvatar team="a" avatar-size="28" show-label="false" />
+                <ui:Label text="カイ-07 · Lv.28" class="iw-num"
+                          style="font-size:12px; color:rgb(244,244,240); margin-left:10px;" />
+                <ui:Label text="でログイン中" style="font-size:10px; color:rgb(138,138,146); margin-left:10px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 右ヒーローキャラ(浮遊) -->
+        <ui:VisualElement name="hero-right" class="iw-anim-float"
+                          style="position:absolute; right:30px; top:110px;">
+            <iw:IwSticker text="NEW SEASON" bg-color="rgb(255,27,107)" text-color="rgb(244,244,240)"
+                          rotate="8" style="position:absolute; right:-10px; top:0; z-index:6;" />
+            <iw:IwInkChar pose="aim" team="a" weapon="shooter" char-size="260" />
+        </ui:VisualElement>
+
+        <!-- 装飾ステッカー 3枚 -->
+        <iw:IwSticker text="FRESH" bg-color="rgb(244,244,240)" text-color="rgb(13,13,16)" rotate="-12"
+                      style="position:absolute; left:36px; bottom:160px;" />
+        <iw:IwSticker text="STREET TYPE" bg-color="rgb(13,13,16)" text-color="rgb(244,244,240)" rotate="6"
+                      style="position:absolute; left:200px; bottom:140px;" />
+        <iw:IwSticker text="4 vs 4" bg-color="rgb(0,229,255)" text-color="rgb(13,13,16)" rotate="-3"
+                      style="position:absolute; right:80px; bottom:190px;" />
+
+        <!-- 下部 NEWSバー -->
+        <ui:VisualElement name="news-bar"
+                          style="position:absolute; bottom:80px; left:28px; right:28px; padding:10px 14px; background-color:rgba(0,0,0,0.55); border-width:2px; border-color:rgb(13,13,16); flex-direction:row; align-items:center;">
+            <iw:IwChip chip-text="NEWS" live="true" />
+            <ui:Label name="news-text" text="◆ 新ステージ「WAVELINE ターミナル」追加 · ◆ 週末トーナメント 土 21:00 JST · ◆ バランス調整 0.7.2 パッチノート公開 · ◆ 限定ギア「ハイドロバイザー」配布中"
+                      style="font-size:12px; -unity-font-style:bold; color:rgb(244,244,240); margin-left:14px; flex-grow:1; -unity-text-overflow-position:end;" />
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement name="hint-bar" class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item">
+                <iw:IwKey key-text="Enter" class="iw-hint-item-key" />
+                <ui:Label text="スタート" class="iw-label" style="font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item">
+                <iw:IwKey key-text="Esc" class="iw-hint-item-key" />
+                <ui:Label text="終了" class="iw-label" style="font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item">
+                <iw:IwKey key-text="F1" class="iw-hint-item-key" />
+                <ui:Label text="クレジット" class="iw-label" style="font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,57 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-noise">
+        <iw:IwSplat splat-size="280" splat-color="rgb(255,27,107)" rotate="22" splat-opacity="0.25"
+                    style="position:absolute; left:-100px; top:-60px;" />
+
+        <!-- ScreenHeader -->
+        <ui:VisualElement class="iw-screen-header">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <iw:IwLogo />
+                <ui:Label text="試合 / リザルト" class="iw-label" style="margin-left:18px; font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <iw:IwChip chip-text="● 3:00 経過" live="false" />
+        </ui:VisualElement>
+
+        <!-- ヒーローバナー -->
+        <ui:VisualElement name="hero-banner" class="iw-anim-pop iw-card iw-card-cut"
+                          style="margin:20px 28px 0; padding:22px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+            <ui:VisualElement style="flex-direction:row; justify-content:space-between; align-items:flex-end;">
+                <ui:VisualElement>
+                    <ui:Label text="結果" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                    <ui:VisualElement style="flex-direction:row;">
+                        <ui:Label text="アルファ" class="iw-head iw-text-outline" style="font-size:56px; color:rgb(255,27,107); -unity-font-style:bold; letter-spacing:-1px;" />
+                        <ui:Label text="勝利" class="iw-head iw-text-outline" style="font-size:56px; color:rgb(244,244,240); -unity-font-style:bold; letter-spacing:-1px; margin-left:14px;" />
+                    </ui:VisualElement>
+                    <ui:Label text="4.4ポイント差 · WAVELINE ターミナル · 塗り合戦"
+                              style="font-size:12px; color:rgb(138,138,146);" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction:row; align-items:flex-end;">
+                    <ui:Label name="count-a" text="0.0%" class="iw-num iw-num-large" style="font-size:48px; color:rgb(255,27,107); -unity-font-style:bold;" />
+                    <ui:Label text="VS" style="font-size:24px; color:rgb(138,138,146); margin-left:14px; margin-right:14px;" />
+                    <ui:Label name="count-b" text="0.0%" class="iw-num iw-num-large" style="font-size:48px; color:rgb(0,229,255); -unity-font-style:bold; opacity:0.7;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <iw:IwTurfBar name="turf-bar" a-pct="52.4" b-pct="48.0" style="margin-top:14px; align-self:center;" />
+        </ui:VisualElement>
+
+        <!-- 3カラム本体 -->
+        <ui:VisualElement style="flex-direction:row; padding:14px 28px; flex-grow:1;">
+            <ui:VisualElement name="table-a" class="iw-card iw-card-cut"
+                              style="flex-grow:1; padding:14px; margin-right:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+            <ui:VisualElement name="table-b" class="iw-card iw-card-cut"
+                              style="flex-grow:1; padding:14px; margin-right:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+            <ui:VisualElement name="mvp-card" class="iw-anim-slide iw-card iw-card-cut"
+                              style="width:320px; padding:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Enter" class="iw-hint-item-key" /><ui:Label text="次の試合" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="L" class="iw-hint-item-key" /><ui:Label text="ロビー" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="P" class="iw-hint-item-key" /><ui:Label text="ハイライト" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

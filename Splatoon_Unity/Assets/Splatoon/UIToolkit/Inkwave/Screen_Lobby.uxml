@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-noise">
+        <!-- ScreenHeader -->
+        <ui:VisualElement class="iw-screen-header">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <iw:IwLogo />
+                <ui:Label text="ホーム / マッチング" class="iw-label" style="margin-left:18px; font-size:11px; color:rgb(138,138,146);" />
+                <ui:Label text="ロビー · 塗り合戦" class="iw-head" style="margin-left:18px; font-size:20px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <!-- 巨大「試合開始」ボタン: ヘッダ右に常設 -->
+            <ui:Button name="btn-ready" text="▶ 試合開始 (クリック)"
+                       class="iw-btn iw-btn-primary iw-anim-glow"
+                       style="height:60px; font-size:20px; -unity-font-style:bold; padding-left:30px; padding-right:30px; -unity-text-align:middle-center;" />
+        </ui:VisualElement>
+
+        <!-- 上部「ボタンを押して開始」 大バナー -->
+        <ui:VisualElement style="padding:14px 28px 0; flex-direction:row; align-items:center; justify-content:center;">
+            <ui:Label text="↑ 右上の【試合開始】ボタンを押すと、ロード→試合開始します ↑"
+                      style="font-size:14px; color:rgb(255,214,0); -unity-font-style:bold; padding:8px 16px; background-color:rgba(255,214,0,0.12); border-width:1px; border-color:rgb(255,214,0);" />
+        </ui:VisualElement>
+
+        <!-- 2カラム本体 -->
+        <ui:VisualElement style="flex-direction:row; padding:14px 28px; flex-grow:1;">
+            <!-- 左: 2チーム -->
+            <ui:VisualElement style="flex-grow:1; flex-direction:column; margin-right:22px;">
+                <ui:VisualElement name="team-a" class="iw-card iw-card-cut" style="padding:18px;" />
+                <ui:VisualElement name="team-b" class="iw-card iw-card-cut" style="padding:18px; margin-top:14px;" />
+            </ui:VisualElement>
+            <!-- 右: ステージ+チャット -->
+            <ui:VisualElement style="width:320px; flex-direction:column;">
+                <ui:VisualElement name="stage-card" class="iw-card iw-card-cut" style="padding:16px;" />
+                <ui:VisualElement name="chat-card" class="iw-card iw-card-cut" style="padding:16px; margin-top:14px; flex-grow:1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="R" class="iw-hint-item-key" /><ui:Label text="準備完了" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="L" class="iw-hint-item-key" /><ui:Label text="ロードアウト" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Esc" class="iw-hint-item-key" /><ui:Label text="離脱" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

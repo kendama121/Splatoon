@@ -1,0 +1,80 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-bg-pause">
+        <iw:IwSplat splat-size="320" splat-color="rgb(255,27,107)" rotate="15" splat-opacity="0.18"
+                    style="position:absolute; left:-120px; bottom:-60px;" />
+        <iw:IwSplat splat-size="280" splat-color="rgb(0,229,255)" rotate="-22" splat-opacity="0.18"
+                    style="position:absolute; right:-80px; bottom:-40px;" />
+
+        <!-- PAUSED 透かし -->
+        <ui:Label text="PAUSED"
+                  style="position:absolute; left:-10px; top:80px; rotate:-90deg; font-size:220px; color:rgba(255,255,255,0.04); -unity-font-style:bold; letter-spacing:-6px;" />
+
+        <!-- 2カラム本体 -->
+        <ui:VisualElement style="position:absolute; left:0; right:0; top:0; bottom:0; flex-direction:row; padding:0 80px; align-items:center;">
+            <!-- 左カラム -->
+            <ui:VisualElement style="width:460px;">
+                <ui:Label text="一時停止 · あなたのタイムアウト" class="iw-label"
+                          style="font-size:11px; color:rgb(255,27,107); letter-spacing:3px;" />
+                <ui:Label text="ひと呼吸。" class="iw-head"
+                          style="font-size:64px; color:rgb(244,244,240); -unity-font-style:bold; letter-spacing:-2px; margin-top:8px;" />
+                <ui:Label text="立て直そう。" class="iw-head"
+                          style="font-size:64px; color:rgb(255,27,107); -unity-font-style:bold; letter-spacing:-2px;" />
+                <ui:Label text="味方は試合を続行中です。メニューを閉じると戦場に戻ります。"
+                          style="font-size:12px; color:rgb(138,138,146); margin-top:14px; white-space:normal; max-width:460px;" />
+
+                <!-- メニュー -->
+                <ui:VisualElement name="pause-menu" style="margin-top:28px;" />
+            </ui:VisualElement>
+
+            <!-- 右カラム -->
+            <ui:VisualElement style="width:520px; margin-left:60px;">
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:18px; background-color:rgba(13,13,16,0.85); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:Label text="現在の試合" class="iw-label" style="font-size:10px; color:rgb(138,138,146);" />
+                    <ui:Label text="WAVELINE ターミナル" class="iw-head" style="font-size:18px; color:rgb(244,244,240); margin-top:4px;" />
+                    <ui:Label text="塗り合戦 · アルファ vs ブラボー" style="font-size:11px; color:rgb(138,138,146);" />
+                    <ui:Label text="1:42" class="iw-anim-blink iw-num"
+                              style="font-size:32px; color:rgb(255,214,0); margin-top:8px; -unity-font-style:bold;" />
+                    <iw:IwTurfBar a-pct="47.2" b-pct="42.8" style="margin-top:8px;" />
+                    <ui:VisualElement style="flex-direction:row; justify-content:space-between; margin-top:6px;">
+                        <ui:Label text="47.2%" class="iw-num" style="font-size:13px; color:rgb(255,27,107);" />
+                        <ui:Label text="42.8%" class="iw-num" style="font-size:13px; color:rgb(0,229,255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:18px; margin-top:14px; background-color:rgba(13,13,16,0.85); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:Label text="これまでの自分" class="iw-label" style="font-size:10px; color:rgb(138,138,146);" />
+                    <ui:VisualElement style="flex-direction:row; margin-top:8px;">
+                        <ui:VisualElement style="flex-grow:1; background-color:rgb(29,29,36); padding:10px; margin-right:8px;">
+                            <ui:Label text="撃破" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="5" class="iw-num" style="font-size:20px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow:1; background-color:rgb(29,29,36); padding:10px; margin-right:8px;">
+                            <ui:Label text="撃破される" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="2" class="iw-num" style="font-size:20px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow:1; background-color:rgb(29,29,36); padding:10px; margin-right:8px;">
+                            <ui:Label text="塗り" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="812pt" class="iw-num" style="font-size:20px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow:1; background-color:rgb(29,29,36); padding:10px;">
+                            <ui:Label text="SP" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="2" class="iw-num" style="font-size:20px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:14px; margin-top:14px; background-color:rgba(13,13,16,0.85); border-width:1px; border-color:rgb(52,52,63); flex-direction:row; align-items:center;">
+                    <iw:IwAvatar team="a" avatar-size="42" show-label="false" />
+                    <ui:VisualElement style="margin-left:12px; flex-grow:1;">
+                        <ui:Label text="ログイン中 · カイ-07 · Lv.28" style="font-size:11px; color:rgb(244,244,240); -unity-font-style:bold;" />
+                        <ui:Label text="リップタイド · アジア / 日本" style="font-size:10px; color:rgb(138,138,146);" />
+                    </ui:VisualElement>
+                    <ui:Label text="22ms" class="iw-num" style="font-size:12px; color:rgb(65,224,122);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-noise">
+        <!-- ScreenHeader -->
+        <ui:VisualElement class="iw-screen-header">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <iw:IwLogo />
+                <ui:Label text="ホーム / 設定" class="iw-label" style="margin-left:18px; font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <iw:IwChip chip-text="未保存の変更なし" live="false" />
+        </ui:VisualElement>
+
+        <!-- 本体 -->
+        <ui:VisualElement style="padding:24px 28px; flex-grow:1;">
+            <!-- タブバー -->
+            <ui:VisualElement name="tabs" style="flex-direction:row;" />
+
+            <!-- 2カラム -->
+            <ui:VisualElement style="flex-direction:row; margin-top:16px; flex-grow:1;">
+                <ui:VisualElement name="settings-content" class="iw-card iw-card-cut iw-scroll"
+                                  style="flex-grow:1; padding:18px; margin-right:16px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);" />
+                <ui:VisualElement name="keybind-content" class="iw-card iw-card-cut"
+                                  style="width:50%; padding:18px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:Label text="キーバインド" class="iw-head" style="font-size:14px; color:rgb(244,244,240);" />
+                    <ui:VisualElement name="keybind-list" style="margin-top:8px; flex-grow:1;" />
+                    <ui:VisualElement style="flex-direction:row; margin-top:14px;">
+                        <ui:Button text="再割り当て" class="iw-btn iw-btn-ghost" style="flex-grow:1; margin-right:6px;" />
+                        <ui:Button text="デフォルトに戻す" class="iw-btn iw-btn-ghost" style="flex-grow:1;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Tab" class="iw-hint-item-key" /><ui:Label text="次のタブ" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Enter" class="iw-hint-item-key" /><ui:Label text="適用" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Esc" class="iw-hint-item-key" /><ui:Label text="戻る" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

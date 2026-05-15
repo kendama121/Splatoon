@@ -1,0 +1,96 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-bg-hud" picking-mode="Ignore">
+
+        <!-- 上部スコアバー -->
+        <ui:VisualElement name="top-bar" picking-mode="Ignore"
+                          style="position:absolute; top:0; left:0; right:0; padding:12px 0; background-color:rgba(0,0,0,0.6); flex-direction:column; align-items:center;">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <ui:Label name="score-a" text="47.2%" class="iw-num iw-text-outline-thick"
+                          style="font-size:28px; color:rgb(255,27,107); -unity-font-style:bold; min-width:140px; -unity-text-align:middle-right; margin-right:14px;" />
+                <iw:IwTurfBar name="turf-bar" a-pct="47.2" b-pct="42.8" />
+                <ui:Label name="score-b" text="42.8%" class="iw-num iw-text-outline-thick"
+                          style="font-size:28px; color:rgb(0,229,255); -unity-font-style:bold; min-width:140px; margin-left:14px;" />
+            </ui:VisualElement>
+            <ui:Label name="timer" text="1:42" class="iw-anim-blink iw-num"
+                      style="font-size:24px; color:rgb(255,214,0); -unity-font-style:bold; margin-top:6px;" />
+            <ui:Label name="final-warn" text="FINAL MINUTE" class="iw-label"
+                      style="font-size:10px; color:rgb(255,85,85); letter-spacing:3px;" />
+        </ui:VisualElement>
+
+        <!-- 照準 -->
+        <ui:VisualElement name="crosshair" picking-mode="Ignore"
+                          style="position:absolute; left:50%; top:50%; translate:-40px -40px; width:80px; height:80px;">
+            <ui:VisualElement style="position:absolute; left:35px; top:0; width:10px; height:24px; background-color:rgba(244,244,240,0.7);" />
+            <ui:VisualElement style="position:absolute; left:35px; bottom:0; width:10px; height:24px; background-color:rgba(244,244,240,0.7);" />
+            <ui:VisualElement style="position:absolute; left:0; top:35px; width:24px; height:10px; background-color:rgba(244,244,240,0.7);" />
+            <ui:VisualElement style="position:absolute; right:0; top:35px; width:24px; height:10px; background-color:rgba(244,244,240,0.7);" />
+            <ui:VisualElement style="position:absolute; left:36px; top:36px; width:8px; height:8px; background-color:rgb(255,27,107); border-radius:50%;" />
+            <ui:Label name="hit-marker" text="" class="iw-anim-num" style="position:absolute; top:-28px; left:0; right:0; font-size:22px; color:rgb(255,85,85); -unity-text-align:middle-center; -unity-font-style:bold;" />
+        </ui:VisualElement>
+
+        <!-- 味方リスト -->
+        <ui:VisualElement name="ally-list" picking-mode="Ignore"
+                          style="position:absolute; top:130px; left:18px; flex-direction:column;" />
+
+        <!-- 敵リスト -->
+        <ui:VisualElement name="enemy-list" picking-mode="Ignore"
+                          style="position:absolute; top:130px; right:18px; flex-direction:column; align-items:flex-end;" />
+
+        <!-- キルフィード -->
+        <ui:VisualElement name="kill-feed" picking-mode="Ignore"
+                          style="position:absolute; top:320px; right:18px; flex-direction:column; align-items:flex-end;" />
+
+        <!-- ミニマップ -->
+        <ui:VisualElement name="mini-map" class="iw-poster" picking-mode="Ignore"
+                          style="position:absolute; bottom:18px; left:18px; width:200px; padding:6px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16);">
+            <ui:VisualElement style="width:188px; height:188px; background-color:rgb(15,20,26); border-width:1px; border-color:rgb(52,52,63);" />
+            <ui:Label text="WAVELINE ターミナル" class="iw-label" style="font-size:9px; color:rgb(244,244,240); margin-top:4px;" />
+            <ui:Label text="HOLD M 拡大" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+        </ui:VisualElement>
+
+        <!-- インクタンク+サブ+SP (中央下) -->
+        <ui:VisualElement name="ink-stack" picking-mode="Ignore"
+                          style="position:absolute; bottom:24px; left:50%; translate:-200px 0; flex-direction:row; align-items:center;">
+            <!-- サブ -->
+            <ui:VisualElement style="width:68px; height:68px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16); align-items:center; justify-content:center; margin-right:18px;">
+                <ui:VisualElement class="iw-splat-base" style="width:36px; height:36px; background-color:rgb(255,27,107);" />
+                <ui:Label text="RMB ボム" class="iw-label" style="position:absolute; bottom:-18px; font-size:9px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+
+            <!-- インクタンク -->
+            <ui:VisualElement name="ink-tank" style="width:140px; height:140px; background-color:rgb(13,13,16); border-width:4px; border-color:rgb(244,244,240); border-radius:50%; align-items:center; justify-content:center; overflow:hidden;">
+                <ui:VisualElement name="ink-fill" style="position:absolute; left:0; right:0; bottom:0; height:60%; background-color:rgb(255,27,107);" />
+                <ui:Label name="ink-num" text="62" class="iw-num" style="font-size:36px; color:rgb(244,244,240); -unity-font-style:bold;" />
+                <ui:Label text="INK" class="iw-label" style="font-size:10px; color:rgb(244,244,240); letter-spacing:2px;" />
+            </ui:VisualElement>
+
+            <!-- スペシャル -->
+            <ui:VisualElement style="width:68px; height:68px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16); align-items:center; justify-content:center; margin-left:18px;">
+                <ui:VisualElement class="iw-anim-glow" style="width:36px; height:36px; background-color:rgb(0,229,255); rotate:45deg;" />
+                <ui:Label text="Q SP" class="iw-label" style="position:absolute; bottom:-18px; font-size:9px; color:rgb(0,229,255);" />
+                <ui:Label name="sp-num" text="84" class="iw-num" style="position:absolute; top:8px; right:4px; font-size:10px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ブキカード -->
+        <ui:VisualElement name="weapon-card" class="iw-poster" picking-mode="Ignore"
+                          style="position:absolute; bottom:18px; right:18px; padding:14px; background-color:rgba(13,13,16,0.85); border-width:2px; border-color:rgb(13,13,16); width:280px;">
+            <ui:Label text="装備中のブキ" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+            <ui:Label text="タイド-08 スプレイヤー" class="iw-head" style="font-size:14px; color:rgb(244,244,240); margin-top:2px;" />
+            <ui:Label text="サブ: スプラッシュボム · SP: ウェーブバースト" style="font-size:9px; color:rgb(138,138,146); margin-top:2px;" />
+            <ui:VisualElement style="flex-direction:row; margin-top:8px;">
+                <iw:IwKey key-text="⇧" /><ui:Label text="イカ" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
+                <iw:IwKey key-text="Space" /><ui:Label text="JUMP" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
+                <iw:IwKey key-text="F" /><ui:Label text="NICE" style="font-size:9px; color:rgb(244,244,240); margin-right:8px; margin-left:4px;" />
+                <iw:IwKey key-text="Tab" /><ui:Label text="MAP" style="font-size:9px; color:rgb(244,244,240); margin-left:4px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ステッカー: 3キル連続 -->
+        <iw:IwSticker name="kill-streak" text="3キル連続!" bg-color="rgb(255,214,0)" text-color="rgb(13,13,16)" rotate="-6"
+                      style="position:absolute; top:96px; right:280px;" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

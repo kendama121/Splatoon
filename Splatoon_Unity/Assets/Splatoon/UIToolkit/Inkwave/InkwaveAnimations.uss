@@ -1,0 +1,100 @@
+/* INKWAVE アニメーション USS
+   USS は @keyframes 不対応 → 全てクラス切替 + transition で表現
+   永続的な点滅/フロート等は C# 側で時間経過に応じてクラストグル */
+
+/* blink: opacity 0.3 ↔ 1.0 */
+.iw-anim-blink {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 600ms;
+    transition-timing-function: ease-in-out;
+}
+.iw-anim-blink-off {
+    opacity: 0.3;
+}
+
+/* pop: scale 0.8 → 1.0 + opacity 0 → 1 (初期表示時のみ) */
+.iw-anim-pop {
+    scale: 1 1;
+    opacity: 1;
+    transition-property: scale, opacity;
+    transition-duration: 360ms;
+    transition-timing-function: ease-out;
+}
+.iw-anim-pop-init {
+    scale: 0.8 0.8;
+    opacity: 0;
+}
+
+/* glow: box系のpseudo発光 → border-color + scale パルス */
+.iw-anim-glow {
+    border-color: rgb(255, 27, 107);
+    transition-property: border-color, scale;
+    transition-duration: 800ms;
+    transition-timing-function: ease-in-out;
+}
+.iw-anim-glow-off {
+    border-color: rgba(255, 27, 107, 0.4);
+    scale: 0.98 0.98;
+}
+
+/* tilt: rotate -3deg ↔ 3deg */
+.iw-anim-tilt {
+    rotate: 0deg;
+    transition-property: rotate;
+    transition-duration: 1200ms;
+    transition-timing-function: ease-in-out;
+}
+.iw-anim-tilt-pos { rotate: 3deg; }
+.iw-anim-tilt-neg { rotate: -3deg; }
+
+/* float: translate 0 ↔ -8px (上下浮遊) */
+.iw-anim-float {
+    translate: 0 0;
+    transition-property: translate;
+    transition-duration: 1500ms;
+    transition-timing-function: ease-in-out;
+}
+.iw-anim-float-up { translate: 0 -8px; }
+
+/* arrow: 矢印水平往復 */
+.iw-anim-arrow {
+    translate: 0 0;
+    transition-property: translate;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+}
+.iw-anim-arrow-right { translate: 6px 0; }
+
+/* slide-in: 下から上+フェード */
+.iw-anim-slide {
+    translate: 0 0;
+    opacity: 1;
+    transition-property: translate, opacity;
+    transition-duration: 320ms;
+    transition-timing-function: ease-out;
+}
+.iw-anim-slide-init {
+    translate: 0 12px;
+    opacity: 0;
+}
+
+/* num-tick: 数値変動時のpop */
+.iw-anim-num {
+    scale: 1 1;
+    transition-property: scale;
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+}
+.iw-anim-num-pop { scale: 1.3 1.3; }
+
+/* shimmer: 半透明グラデが横断 → 単純な背景色変化で代替 */
+.iw-anim-shimmer {
+    background-color: rgba(255, 255, 255, 0.04);
+    transition-property: background-color;
+    transition-duration: 1500ms;
+    transition-timing-function: linear;
+}
+.iw-anim-shimmer-bright {
+    background-color: rgba(255, 255, 255, 0.12);
+}

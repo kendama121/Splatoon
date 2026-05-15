@@ -1,0 +1,105 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:iw="Splatoon.Presentation.Inkwave" editor-extension-mode="False">
+    <Style src="InkwaveCommon.uss" />
+    <Style src="InkwaveAnimations.uss" />
+    <Style src="InkwaveExtras.uss" />
+    <ui:VisualElement name="root" class="iw-screen iw-noise">
+        <!-- ScreenHeader -->
+        <ui:VisualElement class="iw-screen-header">
+            <ui:VisualElement style="flex-direction:row; align-items:center;">
+                <iw:IwLogo />
+                <ui:Label text="ホーム / トレーニング" class="iw-label" style="margin-left:18px; font-size:11px; color:rgb(244,244,240);" />
+            </ui:VisualElement>
+            <iw:IwChip chip-text="自由練習" live="false" />
+        </ui:VisualElement>
+
+        <!-- 3カラム -->
+        <ui:VisualElement style="flex-direction:row; padding:14px 24px; flex-grow:1;">
+            <!-- 左: ドリル一覧 -->
+            <ui:VisualElement name="drill-col" class="iw-card iw-card-cut"
+                              style="width:280px; padding:16px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                <ui:Label text="ドリル" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                <ui:VisualElement name="drill-list" style="margin-top:8px; flex-grow:1;" />
+            </ui:VisualElement>
+
+            <!-- 中央: 練習場 -->
+            <ui:VisualElement name="practice-col" class="iw-card iw-card-cut"
+                              style="flex-grow:1; padding:14px; margin-left:14px; margin-right:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                <ui:Label text="練習場プレビュー" class="iw-head" style="font-size:18px; color:rgb(244,244,240);" />
+                <iw:IwImgSlot img-label="練習場" style="margin-top:10px; flex-grow:1;" />
+
+                <!-- HUDオーバーレイ -->
+                <ui:VisualElement style="position:absolute; top:14px; right:14px; flex-direction:row;">
+                    <iw:IwChip chip-text="HP 100" live="false" style="margin-right:4px;" />
+                    <iw:IwChip chip-text="INK 78%" live="false" style="margin-right:4px;" />
+                    <iw:IwChip chip-text="SP 42%" live="false" />
+                </ui:VisualElement>
+
+                <!-- オプション + ボタン -->
+                <ui:VisualElement style="flex-direction:row; margin-top:12px; align-items:center;">
+                    <ui:Label text="ターゲット数:" class="iw-label" style="font-size:10px; color:rgb(138,138,146); margin-right:8px;" />
+                    <iw:IwKey key-text="3" /><iw:IwKey key-text="5" /><iw:IwKey key-text="10" />
+                    <ui:Button name="btn-start" text="練習開始" class="iw-btn iw-btn-primary" style="margin-left:auto;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- 右: 統計 -->
+            <ui:VisualElement style="width:280px; flex-direction:column;">
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:Label text="セッション統計" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                    <ui:VisualElement style="flex-direction:row; flex-wrap:wrap; margin-top:8px;">
+                        <ui:VisualElement style="width:48%; padding:8px; background-color:rgb(29,29,36); margin-right:2%; margin-bottom:6px;">
+                            <ui:Label text="ヒット率" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="84%" class="iw-num" style="font-size:18px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width:48%; padding:8px; background-color:rgb(29,29,36); margin-bottom:6px;">
+                            <ui:Label text="DPS" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="118" class="iw-num" style="font-size:18px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width:48%; padding:8px; background-color:rgb(29,29,36); margin-right:2%;">
+                            <ui:Label text="平均 RT" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="0.42s" class="iw-num" style="font-size:18px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width:48%; padding:8px; background-color:rgb(29,29,36);">
+                            <ui:Label text="塗り効率" class="iw-label" style="font-size:9px; color:rgb(138,138,146);" />
+                            <ui:Label text="96pt/s" class="iw-num" style="font-size:18px; color:rgb(244,244,240);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:14px; margin-top:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63);">
+                    <ui:Label text="クリア記録" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                    <ui:VisualElement style="margin-top:8px;">
+                        <ui:VisualElement style="flex-direction:row; justify-content:space-between; padding:6px 8px; background-color:rgb(29,29,36); margin-bottom:4px;">
+                            <ui:Label text="基本射撃" style="font-size:11px; color:rgb(244,244,240);" />
+                            <ui:Label text="★★★" style="font-size:11px; color:rgb(255,214,0);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-direction:row; justify-content:space-between; padding:6px 8px; background-color:rgb(29,29,36); margin-bottom:4px;">
+                            <ui:Label text="チャージ撃ち" style="font-size:11px; color:rgb(244,244,240);" />
+                            <ui:Label text="★★☆" style="font-size:11px; color:rgb(255,214,0);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-direction:row; justify-content:space-between; padding:6px 8px; background-color:rgb(29,29,36);">
+                            <ui:Label text="ボム投擲" style="font-size:11px; color:rgb(244,244,240);" />
+                            <ui:Label text="★☆☆" style="font-size:11px; color:rgb(255,214,0);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="iw-card iw-card-cut" style="padding:14px; margin-top:14px; background-color:rgb(21,21,26); border-width:1px; border-color:rgb(52,52,63); flex-grow:1;">
+                    <ui:Label text="クイックアクション" class="iw-label" style="font-size:11px; color:rgb(138,138,146);" />
+                    <ui:Button text="ロードアウト変更" class="iw-btn iw-btn-ghost" style="margin-top:8px;" />
+                    <ui:Button text="背景変更" class="iw-btn iw-btn-ghost" style="margin-top:6px;" />
+                    <ui:Button text="敵BOTを召喚" class="iw-btn iw-btn-ghost" style="margin-top:6px;" />
+                    <ui:Button text="リセット" class="iw-btn iw-btn-ghost" style="margin-top:6px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- HintBar -->
+        <ui:VisualElement class="iw-hint-bar" style="position:absolute; bottom:0; left:0; right:0; flex-direction:row; justify-content:flex-end; padding:14px 28px; background-color:rgba(0,0,0,0.55);">
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Enter" class="iw-hint-item-key" /><ui:Label text="練習開始" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="R" class="iw-hint-item-key" /><ui:Label text="リセット" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="B" class="iw-hint-item-key" /><ui:Label text="BOT召喚" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+            <ui:VisualElement class="iw-hint-item"><iw:IwKey key-text="Esc" class="iw-hint-item-key" /><ui:Label text="戻る" style="font-size:11px; color:rgb(244,244,240);" /></ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

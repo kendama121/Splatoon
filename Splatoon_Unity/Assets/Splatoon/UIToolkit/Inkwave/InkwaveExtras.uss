@@ -1,0 +1,164 @@
+/* INKWAVE 追加スタイル
+   - iw-noise: 微細ノイズ風(USSはノイズ画像なし→border-radiusの極小パターン or 単純rgba)
+   - iw-card-cut: 切り欠きカード(USSはclip-path不対応→border-radiusのみで代替)
+   - iw-scroll: スクロールビュー風(UI Toolkit標準のScrollViewを使用推奨)
+   - iw-stripe: 斜めストライプ(USSはrepeating-linear不対応→単色背景で代替済) */
+
+/* ノイズ風背景: 全画面ベースの上にうっすら明色レイヤー */
+.iw-noise {
+    background-color: rgb(13, 13, 16);
+}
+
+/* iw-card との組み合わせ: 切り欠き効果は USS では border-radius のみ */
+.iw-card.iw-card-cut,
+.iw-card-cut {
+    border-radius: 14px;
+    background-color: rgb(21, 21, 26);
+    border-width: 1px;
+    border-color: rgb(52, 52, 63);
+}
+
+/* スクロール: 内側余白 */
+.iw-scroll {
+    overflow: hidden;
+}
+
+/* シール風 共通 */
+.iw-sticker-shadow {
+    /* USS には drop-shadow なし → border-bottom-width で偽影 */
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+    border-color: rgb(13, 13, 16);
+}
+
+/* チーム色トグル */
+.iw-team-a-bg { background-color: rgb(255, 27, 107); }
+.iw-team-b-bg { background-color: rgb(0, 229, 255); }
+.iw-team-a-col { color: rgb(255, 27, 107); }
+.iw-team-b-col { color: rgb(0, 229, 255); }
+.iw-team-a-border { border-color: rgb(255, 27, 107); }
+.iw-team-b-border { border-color: rgb(0, 229, 255); }
+
+/* ステータス色 */
+.iw-ok-col { color: rgb(65, 224, 122); }
+.iw-warn-col { color: rgb(255, 214, 0); }
+.iw-danger-col { color: rgb(255, 85, 85); }
+.iw-dim-col { color: rgb(138, 138, 146); }
+.iw-white-col { color: rgb(244, 244, 240); }
+
+.iw-ok-bg { background-color: rgb(65, 224, 122); }
+.iw-warn-bg { background-color: rgb(255, 214, 0); }
+.iw-danger-bg { background-color: rgb(255, 85, 85); }
+
+/* レアリティ */
+.iw-rarity-epic { color: rgb(178, 107, 255); }
+.iw-rarity-rare { color: rgb(0, 229, 255); }
+.iw-rarity-common { color: rgb(138, 138, 146); }
+.iw-rarity-epic-bg { background-color: rgb(178, 107, 255); }
+.iw-rarity-rare-bg { background-color: rgb(0, 229, 255); }
+.iw-rarity-common-bg { background-color: rgb(56, 56, 67); }
+
+/* テキストアウトライン */
+.iw-text-outline {
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgb(13, 13, 16);
+}
+.iw-text-outline-thick {
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgb(13, 13, 16);
+}
+
+/* 大見出し */
+.iw-display {
+    font-size: 64px;
+    -unity-font-style: bold;
+    letter-spacing: -2px;
+}
+.iw-display-xl {
+    font-size: 128px;
+    -unity-font-style: bold;
+    letter-spacing: -4px;
+}
+
+/* シーン背景 */
+.iw-bg-title {
+    background-color: rgb(13, 13, 16);
+}
+.iw-bg-pause {
+    background-color: rgb(12, 15, 18);
+}
+.iw-bg-hud {
+    background-color: rgb(10, 18, 24);
+}
+
+/* ダイヤ形(USS clipPath無し→ rotate45 + border-radius0 で擬似) */
+.iw-diamond {
+    rotate: 45deg;
+    width: 24px;
+    height: 24px;
+}
+
+/* 矢じりピル(両端尖り → border-radius:30pxで丸ピル代替) */
+.iw-pill-arrow {
+    border-radius: 30px;
+}
+
+/* 凡用 */
+.iw-grow { flex-grow: 1; }
+.iw-shrink { flex-shrink: 0; }
+.iw-space-between { justify-content: space-between; }
+.iw-align-center { align-items: center; }
+.iw-gap-4 { /* USS gap無し→子要素のmargin-leftで代替必要 */ }
+
+/* HintBar */
+.iw-hint-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 14px 28px;
+    border-top-width: 1px;
+    border-top-color: rgb(52, 52, 63);
+    background-color: rgba(0, 0, 0, 0.55);
+}
+.iw-hint-item {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 18px;
+}
+.iw-hint-item-key {
+    margin-right: 8px;
+}
+
+/* スクリーンヘッダー */
+.iw-screen-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(52, 52, 63);
+}
+
+/* CountUp 数値風 */
+.iw-num-large {
+    font-size: 64px;
+    -unity-font-style: bold;
+}
+
+/* インクタンク背景 */
+.iw-tank-bg {
+    background-color: rgb(13, 13, 16);
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    border-width: 4px;
+    border-color: rgb(244, 244, 240);
+}
+
+/* スプラットマーカー(円形) */
+.iw-splat-base {
+    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+}
